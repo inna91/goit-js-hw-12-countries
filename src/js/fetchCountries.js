@@ -4,6 +4,7 @@ function fetchCountries(searchQuery) {
 
   return fetch(url)
     .then(resp => resp.json())
-    .then(data => data);
+    .then(data => data)
+    .catch(error => console.log(error));
 }
 export default fetchCountries;
