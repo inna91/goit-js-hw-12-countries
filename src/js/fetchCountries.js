@@ -1,8 +1,9 @@
 import error from './notify';
 
 function fetchCountries(searchQuery) {
+  if (!searchQuery) return;
   const url = `https://restcountries.eu/rest/v2/name/${searchQuery}`;
-  // if (!searchQuery) return;
+  console.log(`"${searchQuery}"`);
 
   return fetch(url)
     .then(resp => {
