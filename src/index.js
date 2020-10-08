@@ -1,4 +1,3 @@
-import error from './js/notify';
 import fetchCountries from './js/fetchCountries';
 import updateCountriesMarkup from './js/update-countries-markup';
 import refs from './js/refs';
@@ -19,16 +18,14 @@ function inputChangeHandler(event) {
 }
 
 function queryResult(countries) {
-  if (!countries) {
-    error({
-      title: 'Wrong query! Please try again',
-    });
-    return;
-  }
+  if (!countries) return;
+
   if (countries.length === 1) {
     countryMarkup(countries);
+    return;
   } else if (countries.length > 1 && countries.length < 11) {
     updateCountriesMarkup(countries);
+    return;
   } else {
     error({
       title: 'To many mathches found. Please enter a more specific query!',
